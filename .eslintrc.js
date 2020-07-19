@@ -1,4 +1,6 @@
 /*eslint-env node*/
+const path = require('path');
+
 module.exports = {
   root: true,
   env: {
@@ -26,7 +28,19 @@ module.exports = {
     sourceType: 'module',
   },
   plugins: ['react', '@typescript-eslint', 'import'],
+  settings: {
+    'import/resolver': {
+      node: {
+        extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
+      },
+      typescript: {
+        config: 'tsconfig.json',
+        alwaysTryTypes: true,
+      },
+    },
+  },
   rules: {
+    '@typescript-eslint/no-var-requires': 'off',
     'react/jsx-filename-extension': [
       'error',
       { extensions: ['.js', '.jsx', '.ts', '.tsx'] },
