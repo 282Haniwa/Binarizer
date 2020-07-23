@@ -1,6 +1,4 @@
 /*eslint-env node*/
-const path = require('path');
-
 module.exports = {
   root: true,
   env: {
@@ -48,6 +46,7 @@ module.exports = {
     'import/order': ['error'],
     'import/extensions': ['error', 'never'],
     'import/no-extraneous-dependencies': ['off'],
+    'import/no-unresolved': ['error', { ignore: ['worker-loader*'] }],
     'prettier/prettier': [
       'error',
       {
