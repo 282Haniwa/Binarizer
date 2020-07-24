@@ -39,6 +39,15 @@ module.exports = {
   },
   rules: {
     '@typescript-eslint/no-var-requires': 'off',
+    '@typescript-eslint/ban-types': [
+      'error',
+      {
+        types: {
+          '{}': false,
+        },
+      },
+    ],
+    'react/prop-types': ['off'],
     'react/jsx-filename-extension': [
       'error',
       { extensions: ['.js', '.jsx', '.ts', '.tsx'] },

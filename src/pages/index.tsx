@@ -1,23 +1,27 @@
 import React, { useState, useEffect } from 'react';
 import Head from 'next/head';
-import TestWorker from 'worker-loader?name=static/[hash].worker.js!src/worker/test.worker';
+import { Button, Typography } from '@material-ui/core';
+import ImageProcessorWorker from 'worker-loader?name=static/[hash].worker.js!src/worker/imageProcessor.worker';
+import App from 'src/components/App';
 
 const Home = () => {
-  const [worker, setWorker] = useState<TestWorker>();
+  const [worker, setWorker] = useState<ImageProcessorWorker>();
   useEffect(() => {
-    setWorker(new TestWorker());
+    setWorker(new ImageProcessorWorker());
     return () => worker?.terminate();
   }, []);
 
   return (
-    <div className="container">
+    <>
       <Head>
         <title>Hello</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      Hello!
-      <button onClick={() => worker?.postMessage(3)}>test</button>
-    </div>
+      <App>
+        <Typography>Hello!</Typography>
+        <Button onClick={() => worker?.postMessage(3)}>test</Button>
+      </App>
+    </>
   );
 };
 
