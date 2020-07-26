@@ -2,8 +2,14 @@
 const path = require('path');
 
 module.exports = {
-  webpack(config) {
+  webpack(config, { isServer }) {
+    if (!isServer) {
+      config.node = {
+        fs: 'empty',
+      };
+    }
     config.resolve.alias = {
+      ...config.resolve.alias,
       src: path.join(__dirname, 'src/'),
       lib: path.join(__dirname, 'lib/'),
     };
