@@ -26,4 +26,9 @@ module.exports = {
     config.output.globalObject = `(typeof self !== 'undefined' ? self : this)`;
     return config;
   },
+  exportPathMap: async function (defaultPathMap) {
+    return {
+      '/': { page: '/' },
+    };
+  },
 };
