@@ -1,11 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
-import Head from 'next/head';
 import { makeStyles, Theme } from '@material-ui/core/styles';
 import { Button, Slider, Input } from '@material-ui/core';
 import ImageProcessorWorker from 'worker-loader?name=static/[hash].worker.js!src/worker/imageProcessor.worker';
 import ColorPicker, { Color } from 'src/components/ColorPicker';
 
-import theme from 'src/commons/theme';
 const useStyles = makeStyles((theme: Theme) => ({
   inputFileHide: {
     display: 'none',
@@ -161,10 +159,6 @@ const Home = () => {
 
   return (
     <>
-      <Head>
-        <title>Hello</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
       <div className="container">
         <div style={{ display: 'flex', flexDirection: 'row' }}>
           <div className={classes.colorPickerWrapper}>

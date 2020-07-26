@@ -2,6 +2,8 @@
 
 画像の二値化を行うWebアプリ
 
+https://binarizer.282haniwa.com/
+
 ## 開発用サーバーの起動
 
 ```bash
